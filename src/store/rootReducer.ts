@@ -1,10 +1,8 @@
 import {combineReducers} from 'redux';
-
-// import refresh from "./refresh";
 import metadata from './meta/metaReducer';
-// import serverdata from "./serverdata";
+import categories from './categories/categoryReducer';
 
-const appReducer = combineReducers({metadata});
+const appReducer = combineReducers({metadata, categories});
 
 const rootReducer = (state: any, action: any) => appReducer(state, action);
 

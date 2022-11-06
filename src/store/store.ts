@@ -9,7 +9,7 @@ import rootReducer from './rootReducer';
 const persistConfig = {
   key: 'contruction_machines_management',
   storage: AsyncStorage,
-  whitelist: ['metaReducer', 'cartReducer'],
+  whitelist: ['metaReducer', 'categories'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

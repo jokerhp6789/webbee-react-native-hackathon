@@ -5,6 +5,7 @@ import {Dimensions} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import DashboardScreen from '../screens/dashboard/DashboardScreen';
 import DrawerScreen from './drawer/DrawerScreen';
+import ManageCategoriesScreen from '../screens/categories/ManageCategoriesScreen';
 
 const drawerWidth = Dimensions.get('window').width - 50;
 const Drawer = createDrawerNavigator();
@@ -12,10 +13,18 @@ const Drawer = createDrawerNavigator();
 const AppRoutes = () => {
   return (
     <Drawer.Navigator
-      drawerContent={() => <DrawerScreen />}
-      initialRouteName="dashboardScreen">
-      <Drawer.Screen name="dashboardScreen" component={DashboardScreen} />
+      drawerContent={props => <DrawerScreen {...props} />}
+      initialRouteName="dashboard">
+      <Drawer.Screen
+        name="dashboard"
+        options={{headerTitle: 'Dashboard'}}
+        component={DashboardScreen}
+      />
       {/* <Drawer.Screen name="Notifications" component={NotificationsScreen} /> */}
+      <Drawer.Screen
+        name="manageCategories"
+        component={ManageCategoriesScreen}
+      />
     </Drawer.Navigator>
   );
 };

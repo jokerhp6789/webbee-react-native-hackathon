@@ -1,3 +1,5 @@
 export default {
-  primary: 'rgba(97,33,232)',
+  primary: '#6021e8',
+  white: '#FFFFFF',
+  gray: '#999999',
 };
