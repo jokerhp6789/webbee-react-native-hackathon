@@ -1,25 +1,24 @@
-import {styles} from 'd-react-native-styles';
 import {filter, map} from 'lodash';
 import React from 'react';
 import {Text, View} from 'react-native';
 import {useDispatch} from 'react-redux';
-import Button from '../../../components/button/Button';
-import Card, {ICardProps} from '../../../components/card/Card';
-import Dropdown from '../../../components/dropdown/Dropdown';
-import InputText from '../../../components/input/InputText';
+import Button from '../../../../components/button/Button';
+import Card, {ICardProps} from '../../../../components/card/Card';
+import Dropdown from '../../../../components/dropdown/Dropdown';
+import InputText from '../../../../components/input/InputText';
 import {
   CATEGORY_ATTRIBUTE_TYPES,
   ICategory,
   ICategoryAttribute,
-} from '../../../interface/categories';
-import {crudCategoryAction} from '../../../store/categories/categoriesAction';
+} from '../../../../interface/categories';
+import {crudCategoryAction} from '../../../../store/categories/categoriesAction';
 import {
   EDIT_CATEGORY,
   REMOVE_CATEGORY,
-} from '../../../store/categories/categoriesConstant';
-import AppColors from '../../../style/AppColors';
-import AppSizes from '../../../style/AppSizes';
-import StringUtils from '../../../utils/StringUtils';
+} from '../../../../store/categories/categoriesConstant';
+import AppColors from '../../../../style/AppColors';
+import AppSizes from '../../../../style/AppSizes';
+import StringUtils from '../../../../utils/StringUtils';
 
 export interface ICategoryCardProps extends ICardProps {
   category: ICategory;
@@ -36,7 +35,7 @@ const CategoryAttributeInput = ({
 }) => {
   const {name, type} = attribute || {};
   return (
-    <View style={[styles('flex-row align-items-end')]}>
+    <View style={{flexDirection: 'row', alignItems: 'flex-end'}}>
       <InputText
         styleWrapper={{flex: 1, marginRight: AppSizes.paddingXSml}}
         style={{flex: 1}}
@@ -44,8 +43,13 @@ const CategoryAttributeInput = ({
         suffix={
           <View
             style={[
-              styles('flex-center p-1 rounded-2 text-center'),
-              {width: 70},
+              {
+                width: 70,
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: AppSizes.paddingXSml,
+                borderRadius: AppSizes.borderRadiusMedium,
+              },
             ]}>
             <Text style={{color: AppColors.primary, fontWeight: '700'}}>
               {type}
@@ -125,7 +129,7 @@ const CategoryCard: React.FC<ICategoryCardProps> = ({category, ...rest}) => {
           buttonProps={{
             style: {marginTop: AppSizes.paddingXSml},
           }}>{`TITLE FIELD`}</Dropdown>
-        <View style={[styles('flex-center-y mt-2')]}>
+        <View style={{flexDirection: 'row', marginTop: AppSizes.paddingXSml}}>
           <Dropdown
             onSelect={(index, item) => onAddNewField(item)}
             options={CATEGORY_ATTRIBUTE_TYPES}
@@ -135,7 +139,7 @@ const CategoryCard: React.FC<ICategoryCardProps> = ({category, ...rest}) => {
             }}>{`ADD NEW FIELD`}</Dropdown>
           <Button
             variant="outline"
-            style={styles('flex-1 ml-2')}
+            style={{flex: 1, marginLeft: AppSizes.paddingXSml}}
             onPress={() => {
               dispatch(crudCategoryAction(REMOVE_CATEGORY, category));
             }}>

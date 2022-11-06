@@ -11,12 +11,18 @@ export interface ICategoryAttribute {
   id?: string;
 }
 
+export interface IMachine {
+  id: string;
+  attributes: Array<{id: string; value: string}>;
+}
+
 export interface ICategory {
   id: string;
   name?: string;
   titleField?: string;
   created?: Date;
   attributes?: Array<ICategoryAttribute>;
+  machines?: Array<{id: string; [key: string]: any}>;
 }
 
 export const CATEGORY_ATTRIBUTE_TYPES = [

@@ -1,8 +1,8 @@
-import {styles} from 'd-react-native-styles';
 import React from 'react';
 import {Text} from 'react-native';
 import ModalDropdown, {ModalDropdownProps} from 'react-native-modal-dropdown';
 import AppFonts from '../../style/AppFonts';
+import AppSizes from '../../style/AppSizes';
 import Button, {IButtonProps} from '../button/Button';
 
 export interface IDropdownProps extends ModalDropdownProps {
@@ -19,7 +19,8 @@ const Dropdown: React.FC<IDropdownProps> = ({
 }) => {
   const renderRow = (item: any, index: string) => {
     return (
-      <Text style={[styles('p-3'), {fontSize: AppFonts.h3}]}>
+      <Text
+        style={[{padding: AppSizes.paddingMedium}, {fontSize: AppFonts.h3}]}>
         {getLabel(item)}
       </Text>
     );

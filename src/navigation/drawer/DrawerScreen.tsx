@@ -16,7 +16,7 @@ export interface IDrawerScreenProps {
 }
 
 const DrawerScreen: React.FC<IDrawerScreenProps> = (props: any) => {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation();
   const listCategories = useSelector<AppStoreState>(
     state => state?.categories?.data ?? [],
   ) as ICategory[];
@@ -34,7 +34,9 @@ const DrawerScreen: React.FC<IDrawerScreenProps> = (props: any) => {
             label={category?.name ?? 'N/A'}
             key={`${category?.id}`}
             onPress={() => {
-              navigation.navigate('categoryDetailScreen');
+              navigation.navigate('categoryDetailScreen', {
+                categoryId: category?.id,
+              });
             }}
           />
         );

@@ -8,7 +8,6 @@
  * @format
  */
 
-import {Colors} from 'd-react-native-styles';
 // import { ToastProvider } from "react-native-toast-notifications";
 import {PersistGate} from 'redux-persist/integration/react';
 import * as React from 'react';

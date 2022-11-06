@@ -1,22 +1,14 @@
 import {map} from 'lodash';
 import React from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  KeyboardAvoidingView,
-} from 'react-native';
+import {KeyboardAvoidingView, ScrollView, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import Button from '../../components/button/Button';
-import Card from '../../components/card/Card';
-import useKeyBoard from '../../hooks/useKeyboard';
-import {ICategory} from '../../interface/categories';
-import {crudCategoryAction} from '../../store/categories/categoriesAction';
-import {ADD_CATEGORY} from '../../store/categories/categoriesConstant';
-import {AppStoreState} from '../../store/store';
-import AppSizes from '../../style/AppSizes';
+import Button from '../../../components/button/Button';
+import useKeyBoard from '../../../hooks/useKeyboard';
+import {ICategory} from '../../../interface/categories';
+import {crudCategoryAction} from '../../../store/categories/categoriesAction';
+import {ADD_CATEGORY} from '../../../store/categories/categoriesConstant';
+import {AppStoreState} from '../../../store/store';
+import AppSizes from '../../../style/AppSizes';
 import CategoryCard from './content/CategoryCard';
 
 export interface IManageCategoriesScreenProps {
